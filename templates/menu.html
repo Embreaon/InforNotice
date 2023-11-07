@@ -1,13 +1,11 @@
-<!DOCTYPE html>
-<html lang="ko">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>menu</title>
-    <link rel="stylesheet" href="{{ url_for('static', path='/css/bootstrap.min.css') }}" />
-  </head>
-  <body>
-    <div class="container" style="background-color: #e9e9e9;">
+{% extends 'base.html' %}
+
+{% block content %}
+      <style>
+        .container {
+          background-color: #e9e9e9;
+        }
+      </style>
 
       <header class="mb-4 pt-3 pb-4">
         <!-- 페이지 상단 카테고리 -->
@@ -211,13 +209,10 @@
       </div>
       <!-- 현금 결제 모달 끝 -->
 
-    </div> <!-- 컨테이너 div -->
+      {% endblock content %}
 
     <!-- 장바구니 리스트 제거 스크립트 -->
     <script src="{{ url_for('static', path='/js/cart.js') }}"></script>
     <!-- 장바구니 리스트 제거 스크립트 끝 -->
-    
     <script src="{{ url_for('static', path='/js/jquery-3.5.1.slim.min.js') }}"></script>
     <script src="{{ url_for('static', path='/js/bootstrap.bundle.min.js') }}"></script>
-  </body>
-</html>
