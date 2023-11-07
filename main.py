@@ -54,9 +54,18 @@ async def menu(request: Request, db: Session = Depends(get_db)):
 
 @app.get("/info/{menu_id}")
 async def notice(request: Request, menu_id: int, db: Session = Depends(get_db)):
+
+    path="./static/img/"
+    img_list = os.listdir(path)
+
+    img_nm_list = []
+
+    for i in img_list:
+        img_nm_list.append(i.split(".")[0])
+
     crn_info = db.query(Menu).filter(Menu.menu_id == menu_id).first() # current_information
     dt_info = db.query(Menu).order_by(Menu.menu_id)
-    return templates.TemplateResponse("notice.html", {"request": request, "dt_info": dt_info, "crn_info": crn_info})
+    return templates.TemplateResponse("notice.html", {"request": request, "dt_info": dt_info, "crn_info": crn_info, "img_nm_list":img_nm_list})
 
 @app.get("/cart/add/{menu_nm}")
 async def add_cart(request: Request, menu_nm: str):
