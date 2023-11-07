@@ -16,7 +16,9 @@
           </div>
       </footer>
       
-    {% endblock content %}
-    
-    <script src="{{ url_for('static', path='/js/jquery-3.5.1.slim.min.js') }}"></script>
-    <script src="{{ url_for('static', path='/js/bootstrap.bundle.min.js') }}"></script>
+{% endblock content %}
+
+{% block scrpt %}
+<script src="{{ url_for('static', path='/js/jquery-3.5.1.slim.min.js') }}"></script>
+<script src="{{ url_for('static', path='/js/bootstrap.bundle.min.js') }}"></script>
+{% endblock %}

@@ -8,23 +8,12 @@ from fastapi.staticfiles import StaticFiles
 from admin import *
 from menu import *
 
-from database import *
-from models import *
-
 templates = Jinja2Templates(directory="templates")
 
 app = FastAPI()
 app.mount("/static", StaticFiles(directory="static"), name="static")
 app.include_router(admin)
 app.include_router(menus)
-engine = engineconn()
-
-def get_db():
-    session = engine.session_maker()
-    try:
-        yield session
-    finally:
-        session.close()
 
 @app.get("/")
 async def home(request: Request):
