@@ -1,5 +1,5 @@
 document.getElementById("list-clear").addEventListener("click", function () {
-    fetch('/cart/delete/', {
+    fetch('/menu/cart/delete/', {
       method: 'DELETE'
     })
     .then(response => {
