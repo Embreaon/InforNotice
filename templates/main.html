@@ -1,10 +1,6 @@
-<!DOCTYPE html>
-<html lang="ko">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>main</title>
-    <link rel="stylesheet" href="{{ url_for('static', path='/css/bootstrap.min.css') }}" />
+{% extends 'base.html' %}
+
+{% block content %}
     <style>
       body {
         background-image: url("{{ url_for('static', path='/img/bg.jpg') }}");
@@ -12,9 +8,6 @@
         background-size: cover;
       }
     </style>
-  </head>
-  <body>
-    <div class="container">
 
       <footer>
           <div class="fixed-bottom d-flex justify-content-center">
@@ -22,10 +15,8 @@
             <button type="button" class="btn btn-secondary flex-fill" onclick="location.href='/menu'" style="font-size: 128px;">포장하기</button>
           </div>
       </footer>
-
-    </div>
+      
+    {% endblock content %}
     
     <script src="{{ url_for('static', path='/js/jquery-3.5.1.slim.min.js') }}"></script>
     <script src="{{ url_for('static', path='/js/bootstrap.bundle.min.js') }}"></script>
-  </body>
-</html>
