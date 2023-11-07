@@ -209,10 +209,13 @@
       </div>
       <!-- 현금 결제 모달 끝 -->
 
-      {% endblock content %}
+{% endblock content %}
 
-    <!-- 장바구니 리스트 제거 스크립트 -->
-    <script src="{{ url_for('static', path='/js/cart.js') }}"></script>
-    <!-- 장바구니 리스트 제거 스크립트 끝 -->
-    <script src="{{ url_for('static', path='/js/jquery-3.5.1.slim.min.js') }}"></script>
-    <script src="{{ url_for('static', path='/js/bootstrap.bundle.min.js') }}"></script>
+{% block scrpt %}
+<!-- 장바구니 리스트 제거 스크립트 -->
+<script src="{{ url_for('static', path='/js/cart.js') }}"></script>
+<!-- 장바구니 리스트 제거 스크립트 끝 -->
+
+<script src="{{ url_for('static', path='/js/jquery-3.5.1.slim.min.js') }}"></script>
+<script src="{{ url_for('static', path='/js/bootstrap.bundle.min.js') }}"></script>
+{% endblock scrpt %}
