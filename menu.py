@@ -11,6 +11,8 @@ from models import *
 
 from sqlalchemy.orm import Session
 
+from typing import List, Optional
+
 import os
 
 templates = Jinja2Templates(directory="templates")
