@@ -43,12 +43,10 @@
                 {% else %}
                   <img src="{{ url_for('static', path='img/coffee_placeholder_1.jpg') }}" alt="image_coffee" class="w-75 h-auto m-auto" />
                 {% endif %}
-                <div class="card-body p-3">
-                  {% if (coffee.menu_nm|length) >= 13 %}
-                    <p class="card-title" style="font-size: 14px;">{{ coffee.menu_nm }}</p>
-                  {% else %}
-                    <p class="card-title">{{ coffee.menu_nm }}</p>
-                  {% endif %}
+                <div class="card-body p-3">          
+                  <div style="margin-bottom: 20px; height: 50px; display: flex; justify-content: center; align-items: center;">
+                    <div class="card-title" style="margin: 0; padding: 0; text-align: center; word-break: keep-all;">{{ coffee.menu_nm }}</div>
+                  </div>
                   <a href="/menu/info/{{ coffee.menu_id }}" class="card-text btn btn-block btn-danger">주문하기</a>
                 </div>
               </div>
@@ -66,13 +64,11 @@
                   <img src="{{ url_for('static', path=('img/' ~ tea.menu_id ~ '.jpg')) }}" alt="{{ tea.menu_nm }}" class="w-75 h-auto m-auto" />
                 {% else %}
                   <img src="{{ url_for('static', path='img/tea_placeholder.jpg') }}" alt="image_tea" class="w-75 h-auto m-auto" />
-                {% endif %}
-                <div class="card-body px-5">
-                  {% if (tea.menu_nm|length) >= 13 %}
-                    <p class="card-title" style="font-size: 14px;">{{ tea.menu_nm }}</p>
-                  {% else %}
-                    <p class="card-title">{{ tea.menu_nm }}</p>
-                  {% endif %}
+                {% endif %}                
+                  <div class="card-body p-3">          
+                    <div style="margin-bottom: 20px; height: 50px; display: flex; justify-content: center; align-items: center;">
+                      <div class="card-title" style="margin: 0; padding: 0; text-align: center; word-break: keep-all;">{{ tea.menu_nm }}</div>
+                    </div>
                   <a href="/menu/info/{{ tea.menu_id }}" class="card-text btn btn-block btn-danger">주문하기</a>
                 </div>
               </div>
@@ -91,12 +87,10 @@
                   {% else %}
                     <img src="{{ url_for('static', path='img/drink_placeholder.jpg') }}" alt="image_drink" class="w-75 h-auto m-auto" />
                   {% endif %}
-                <div class="card-body px-5">
-                  {% if (drink.menu_nm|length) >= 13 %}
-                    <p class="card-title" style="font-size: 14px;">{{ drink.menu_nm }}</p>
-                  {% else %}
-                    <p class="card-title">{{ drink.menu_nm }}</p>
-                  {% endif %}
+                  <div class="card-body p-3">          
+                    <div style="margin-bottom: 20px; height: 50px; display: flex; justify-content: center; align-items: center;">
+                      <div class="card-title" style="margin: 0; padding: 0; text-align: center; word-break: keep-all;">{{ drink.menu_nm }}</div>
+                    </div>
                   <a href="/menu/info/{{ drink.menu_id }}" class="card-text btn btn-block btn-danger">주문하기</a>
                 </div>
               </div>
@@ -114,13 +108,11 @@
                     <img src="{{ url_for('static', path=('img/' ~ dessert.menu_id ~ '.jpg')) }}" alt="{{ dessert.menu_nm }}" class="w-75 h-auto m-auto" />
                   {% else %}
                     <img src="{{ url_for('static', path='img/dessert_placeholder.jpg') }}" alt="image_dessert" class="w-75 h-auto m-auto" />
-                  {% endif %}
-                <div class="card-body px-5">
-                  {% if (dessert.menu_nm|length) >= 13 %}
-                    <p class="card-title" style="font-size: 14px;">{{ dessert.menu_nm }}</p>
-                  {% else %}
-                    <p class="card-title">{{ dessert.menu_nm }}</p>
-                  {% endif %}
+                  {% endif %}                
+                  <div class="card-body p-3">          
+                    <div style="margin-bottom: 20px; height: 50px; display: flex; justify-content: center; align-items: center;">
+                      <div class="card-title" style="margin: 0; padding: 0; text-align: center; word-break: keep-all;">{{ dessert.menu_nm }}</div>
+                    </div>
                   <a href="/menu/info/{{ dessert.menu_id }}" class="card-text btn btn-block btn-danger">주문하기</a>
                 </div>
               </div>
@@ -146,7 +138,9 @@
               <tr>
                 <td>{{ loop.index }}</td>
                 <td>{{ item }}</td>
-                <td><!-- placeholder --></td>
+                {% if (cart_list|length) != 0 %}
+                <td> 5000 </td>
+                {% endif %}
               </tr>
               {% endfor %}
             </thead>
@@ -154,7 +148,7 @@
           <table class="table table-borderless text-center">
             <tr>
               <td id="num-count" style="font-size: 32px; color: darkcyan;">{{ (cart_list|length) }}</td>
-              <td id="num-total" style="font-size: 32px; color: salmon;">0</td>
+              <td id="num-total" style="font-size: 32px; color: salmon;">{{ (cart_list|length) * 5000 }}</td>
             </tr>
             <tr>
               <th scope="col" style="font-size: 24px;">주문수량</th>
@@ -163,9 +157,13 @@
           </table>
 
           <div role="group" class="btn-group flex-row ml-5 mr-2 my-4 pb-3">
-            <button type="button" class="btn btn-danger mx-1 px-4" id="list-clear" onclick="location.href='#num-count'">목록지우기</button>
-            <button type="button" class="btn btn-info mx-1 px-4" data-toggle="modal" data-target="#modalCard">카드결제</button>
-            <button type="button" class="btn btn-primary mx-1 px-4" data-toggle="modal" data-target="#modalCredits">현금결제</button>
+            <button type="button" style="background-color: #dc3545; border-color: white; margin-left: 3px; margin-right: 3px; width: 130px; height: 130px; font-size: 24px; color: white;" id="list-clear" onclick="location.href='#num-count'"><p style="margin: 0px;">목록</p><p style="margin: 0px;">삭제</p></button>
+            <button type="button" style="background-color: blue; border-color: white; margin-left: 3px; margin-right: 3px; width: 130px; height: 130px; font-size: 24px; color: white;" data-toggle="modal" data-target="#modalCard"><p style="margin: 0px;">카드</p><p style="margin: 0px;">결제</p></button>
+            <button type="button" style="background-color: #28a745; border-color: white; margin-left: 3px; margin-right: 3px; width: 130px; height: 130px; font-size: 24px; color: white;" data-toggle="modal" data-target="#modalCredits"><p style="margin: 0px;">현금</p><p style="margin: 0px;">결제</p></button>
+
+            <!-- <button type="button" class="btn btn-danger btn-lg mx-1 px-5" id="list-clear" onclick="location.href='#num-count'">목록삭제</button>
+            <button type="button" class="btn btn-info btn-lg mx-1 px-5" data-toggle="modal" data-target="#modalCard">카드결제</button>
+            <button type="button" class="btn btn-primary btn-lg mx-1 px-5" data-toggle="modal" data-target="#modalCredits">현금결제</button> -->
           </div>
         </div>
       </footer>
