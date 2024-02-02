@@ -1,3 +1,16 @@
+# Before you notice...
+- 이 프로젝트를 살펴보기에 앞서...
+
+This project was a project that gathered people who lacked individual competence,
+That's why it was a top priority to bring out the maximum capabilities that individuals could do for the projects they were working on.
+
+I aimed to really utilize FastAPI and MySQL in this project and gain various experience with it.
+
+이 프로젝트는 개인역량이 부족했던 사람들을 모아 진행했던 프로젝트이며,
+그렇기 때문에 최우선으로 목표로 했던 것은 진행하는 프로젝트에 개인이 할 수 있는 최대한의 역량을 끌어내는 것을 목표로 두었다.
+
+나는 이 프로젝트에서 FastAPI와 MySQL을 실제로 활용하고 이에 대한 다양한 경험을 쌓는 것을 목표로 두었다.
+
 # Infornotice?
 - INformation FOR NOTICE
 
