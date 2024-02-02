@@ -1,6 +1,9 @@
 # Before you notice...
 - 이 프로젝트를 살펴보기에 앞서...
 
+* All english translation by machine translator. It may not be accurate.
+* 영어 번역은 전부 번역기를 사용했기 때문에, 그다지 정확하지 않을 수 있다.
+
 This project was a project that gathered people who lacked individual competence,
 That's why it was a top priority to bring out the maximum capabilities that individuals could do for the projects they were working on.
 
@@ -45,5 +48,3 @@ checkbox를 통해 어느 정도 구현할 수 있었을 것 같다. <br> <br>
 <del>To be honest, the administrator page was roughly created and only implemented logic.</del>
 
 <del>솔직히 말하자면 관리자페이지는 대충 만들고 로직만 구현한 거긴 하다.</del>
-
-* All english translation by machine translator. It may not be accurate.
